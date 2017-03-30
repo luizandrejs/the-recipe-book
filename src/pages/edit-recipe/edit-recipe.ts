@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { NavParams, ActionSheetController, AlertController } from 'ionic-angular';
 
 @Component({
@@ -32,7 +32,7 @@ export class EditRecipePage implements OnInit {
         {
           text: 'Add Ingredient',
           handler: () => {
-
+            this.createNewIngredientAlert().present();
           }
         },
         {
@@ -52,12 +52,12 @@ export class EditRecipePage implements OnInit {
   }
 
   private createNewIngredientAlert() {
-    const newIngredientAlert = this.alertCtrl.create({
+    return this.alertCtrl.create({
       title: 'Add Ingredient',
       inputs: [
         {
           name: 'name',
-          placeholders: 'Name'
+          placeholder: 'Name'
         }
       ],
       buttons: [
@@ -69,8 +69,9 @@ export class EditRecipePage implements OnInit {
           text: 'Add',
           handler: data => {
             if (data.name.trim() == '' || data.name == null) {
-
+              return;
             }
+            (<FormArray>this.recipeForm.get('ingredients')).push(new FormControl(data.name, Validators.required));
           }
         }
       ]
@@ -81,7 +82,8 @@ export class EditRecipePage implements OnInit {
     this.recipeForm = new FormGroup({
       'title': new FormControl(null, Validators.required),
       'description': new FormControl(null, Validators.required),
-      'difficulty': new FormControl('Medium', Validators.required)
+      'difficulty': new FormControl('Medium', Validators.required),
+      'ingredients': new FormArray([])
     });
   }
 }
