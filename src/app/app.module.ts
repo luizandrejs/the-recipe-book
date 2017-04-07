@@ -1,3 +1,6 @@
+import { AuthService } from './../services/auth';
+import { SigninPage } from './../pages/signin/signin';
+import { SignupPage } from './../pages/signup/signup';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -16,7 +19,9 @@ import { RecipesService } from "../services/recipes";
     RecipePage,
     RecipesPage,
     ShoppingListPage,
-    TabsPage
+    TabsPage,
+    SignupPage,
+    SigninPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -28,12 +33,15 @@ import { RecipesService } from "../services/recipes";
     RecipePage,
     RecipesPage,
     ShoppingListPage,
-    TabsPage
+    TabsPage,
+    SignupPage,
+    SigninPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ShoppingListService,
-    RecipesService
+    RecipesService,
+    AuthService
   ]
 })
 export class AppModule {
