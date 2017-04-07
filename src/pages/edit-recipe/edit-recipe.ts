@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
 import { FormGroup, FormControl, Validators, FormArray } from "@angular/forms";
 import {
   NavParams,
@@ -10,10 +9,6 @@ import {
 
 import { RecipesService } from "../../services/recipes";
 import { Recipe } from "../../models/recipe";
-=======
-import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
-import { NavParams, ActionSheetController, AlertController } from 'ionic-angular';
->>>>>>> 0a6a13aef2cd9394c783c924e64aa5427cc4dc73
 
 @Component({
   selector: 'page-edit-recipe',
@@ -154,17 +149,10 @@ export class EditRecipePage implements OnInit {
     }
 
     this.recipeForm = new FormGroup({
-<<<<<<< HEAD
       'title': new FormControl(title, Validators.required),
       'description': new FormControl(description, Validators.required),
       'difficulty': new FormControl(difficulty, Validators.required),
       'ingredients': new FormArray(ingredients)
-=======
-      'title': new FormControl(null, Validators.required),
-      'description': new FormControl(null, Validators.required),
-      'difficulty': new FormControl('Medium', Validators.required),
-      'ingredients': new FormArray([])
->>>>>>> 0a6a13aef2cd9394c783c924e64aa5427cc4dc73
     });
   }
 }
