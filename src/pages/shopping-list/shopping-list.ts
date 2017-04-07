@@ -1,7 +1,8 @@
-import { ShoppingListService } from './../../service/shopping-list';
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Ingredient } from '../../models/ingredient';
+import { NgForm } from "@angular/forms";
+
+import { ShoppingListService } from "../../services/shopping-list";
+import { Ingredient } from "../../models/ingredient";
 
 @Component({
   selector: 'page-shopping-list',
@@ -30,5 +31,4 @@ export class ShoppingListPage {
   private loadItems() {
     this.listItems = this.slService.getItems();
   }
-
 }
