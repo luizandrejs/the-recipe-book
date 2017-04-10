@@ -1,3 +1,4 @@
+import { SLOptionsPage } from './../pages/shopping-list/sl-options/sl-options';
 import { AuthService } from './../services/auth';
 import { SigninPage } from './../pages/signin/signin';
 import { SignupPage } from './../pages/signup/signup';
@@ -21,7 +22,8 @@ import { RecipesService } from "../services/recipes";
     ShoppingListPage,
     TabsPage,
     SignupPage,
-    SigninPage
+    SigninPage,
+    SLOptionsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -35,7 +37,8 @@ import { RecipesService } from "../services/recipes";
     ShoppingListPage,
     TabsPage,
     SignupPage,
-    SigninPage
+    SigninPage,
+    SLOptionsPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

@@ -1,3 +1,4 @@
+import { AuthService } from './../services/auth';
 import { SignupPage } from './../pages/signup/signup';
 import { SigninPage } from './../pages/signin/signin';
 import { Component, ViewChild } from '@angular/core';
@@ -6,20 +7,29 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import firebase from 'firebase';
 import { TabsPage } from "../pages/tabs/tabs";
 
-
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  tabsPage = TabsPage;
+  rootPage: any = TabsPage;
   signinPage = SigninPage;
   signupPage = SignupPage;
+  isAuthenticated = false;
   @ViewChild('nav') nav: NavController;
 
-  constructor(platform: Platform, private menuCtrl: MenuController) {
+  constructor(platform: Platform, private menuCtrl: MenuController, private authService: AuthService) {
     firebase.initializeApp({
       apiKey: "AIzaSyAYHdL-cX0UL252R3az1ul4pJfEQ9ucrTg",
       authDomain: "the-recipe-book.firebaseapp.com"
+    });
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.isAuthenticated = true;
+        this.rootPage = TabsPage;
+      } else {
+        this.isAuthenticated = false;
+        this.rootPage = SigninPage;
+      }
     });
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -35,6 +45,8 @@ export class MyApp {
   }
 
   onLogout() {
-
+    this.authService.logout();
+    this.menuCtrl.close();
+    this.nav.setRoot(SigninPage);
   }
 }
