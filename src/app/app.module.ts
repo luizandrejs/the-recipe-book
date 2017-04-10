@@ -1,7 +1,3 @@
-import { SLOptionsPage } from './../pages/shopping-list/sl-options/sl-options';
-import { AuthService } from './../services/auth';
-import { SigninPage } from './../pages/signin/signin';
-import { SignupPage } from './../pages/signup/signup';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -12,6 +8,10 @@ import { ShoppingListPage } from "../pages/shopping-list/shopping-list";
 import { TabsPage } from "../pages/tabs/tabs";
 import { ShoppingListService } from "../services/shopping-list";
 import { RecipesService } from "../services/recipes";
+import { SigninPage } from "../pages/signin/signin";
+import { SignupPage } from "../pages/signup/signup";
+import { AuthService } from "../services/auth";
+import { DatabaseOptionsPage } from "../pages/database-options/database-options";
 
 @NgModule({
   declarations: [
@@ -21,9 +21,9 @@ import { RecipesService } from "../services/recipes";
     RecipesPage,
     ShoppingListPage,
     TabsPage,
-    SignupPage,
     SigninPage,
-    SLOptionsPage
+    SignupPage,
+    DatabaseOptionsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -36,9 +36,9 @@ import { RecipesService } from "../services/recipes";
     RecipesPage,
     ShoppingListPage,
     TabsPage,
-    SignupPage,
     SigninPage,
-    SLOptionsPage
+    SignupPage,
+    DatabaseOptionsPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

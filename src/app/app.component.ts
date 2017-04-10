@@ -1,11 +1,13 @@
-import { AuthService } from './../services/auth';
-import { SignupPage } from './../pages/signup/signup';
-import { SigninPage } from './../pages/signin/signin';
 import { Component, ViewChild } from '@angular/core';
 import { Platform, NavController, MenuController } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import firebase from 'firebase';
+
 import { TabsPage } from "../pages/tabs/tabs";
+import { SigninPage } from "../pages/signin/signin";
+import { SignupPage } from "../pages/signup/signup";
+import { AuthService } from "../services/auth";
+
 
 @Component({
   templateUrl: 'app.html'
@@ -17,10 +19,12 @@ export class MyApp {
   isAuthenticated = false;
   @ViewChild('nav') nav: NavController;
 
-  constructor(platform: Platform, private menuCtrl: MenuController, private authService: AuthService) {
+  constructor(platform: Platform,
+              private menuCtrl: MenuController,
+              private authService: AuthService) {
     firebase.initializeApp({
-      apiKey: "AIzaSyAYHdL-cX0UL252R3az1ul4pJfEQ9ucrTg",
-      authDomain: "the-recipe-book.firebaseapp.com"
+      apiKey: "AIzaSyDpajGvwZCs6i7E_l6MYWx0cIl7HzisRXk",
+      authDomain: "ionic2-recipebook.firebaseapp.com"
     });
     firebase.auth().onAuthStateChanged(user => {
       if (user) {

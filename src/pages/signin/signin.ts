@@ -1,7 +1,8 @@
-import { LoadingController, AlertController } from 'ionic-angular';
-import { AuthService } from './../../services/auth';
-import { NgForm } from '@angular/forms';
 import { Component } from '@angular/core';
+import { NgForm } from "@angular/forms";
+import { LoadingController, AlertController } from "ionic-angular";
+
+import { AuthService } from "../../services/auth";
 
 @Component({
   selector: 'page-signin',
@@ -9,7 +10,10 @@ import { Component } from '@angular/core';
 })
 export class SigninPage {
 
-  constructor(private authService: AuthService, private loadingCtrl: LoadingController, private alertCtrl: AlertController) { }
+  constructor(private authService: AuthService,
+              private loadingCtrl: LoadingController,
+              private alertCtrl: AlertController) {
+  }
 
   onSignin(form: NgForm) {
     const loading = this.loadingCtrl.create({
@@ -21,8 +25,9 @@ export class SigninPage {
         loading.dismiss();
       })
       .catch(error => {
+        loading.dismiss();
         const alert = this.alertCtrl.create({
-          title: 'Signip failed',
+          title: 'Signin failed!',
           message: error.message,
           buttons: ['Ok']
         });
