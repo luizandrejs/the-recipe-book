@@ -1,6 +1,6 @@
 {
-  "name": "ionic-hello-world",
-  "author": "Ionic Framework",
+  "name": "the-recipe-book",
+  "author": "luizandrejs",
   "homepage": "http://ionicframework.com/",
   "private": true,
   "scripts": {
@@ -48,5 +48,5 @@
       "locator": "ios"
     }
   ],
-  "description": "ionic2-course: An Ionic project"
+  "description": ""
 }
