@@ -38,13 +38,13 @@ export class RecipesService {
 
   storeList(token: string) {
     const userId = this.authService.getActiveUser().uid;
-    return this.http.put('https://ionic2-recipebook.firebaseio.com/' + userId + '/recipes.json?auth=' + token, this.recipes)
+    return this.http.put('https://the-recipe-book.firebaseio.com/' + userId + '/recipes.json?auth=' + token, this.recipes)
       .map((response: Response) => response.json());
   }
 
   fetchList(token: string) {
     const userId = this.authService.getActiveUser().uid;
-    return this.http.get('https://ionic2-recipebook.firebaseio.com/' + userId + '/recipes.json?auth=' + token)
+    return this.http.get('https://the-recipe-book.firebaseio.com/' + userId + '/recipes.json?auth=' + token)
       .map((response: Response) => {
         const recipes: Recipe[] = response.json() ? response.json() : [];
         for (let item of recipes) {

@@ -20,11 +20,11 @@ export class MyApp {
   @ViewChild('nav') nav: NavController;
 
   constructor(platform: Platform,
-              private menuCtrl: MenuController,
-              private authService: AuthService) {
+    private menuCtrl: MenuController,
+    private authService: AuthService) {
     firebase.initializeApp({
-      apiKey: "AIzaSyDpajGvwZCs6i7E_l6MYWx0cIl7HzisRXk",
-      authDomain: "ionic2-recipebook.firebaseapp.com"
+      apiKey: "AIzaSyAYHdL-cX0UL252R3az1ul4pJfEQ9ucrTg",
+      authDomain: "the-recipe-book.firebaseapp.com"
     });
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
